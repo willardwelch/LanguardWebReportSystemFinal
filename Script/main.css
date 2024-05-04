@@ -1,0 +1,173 @@
+body {
+    margin: 0 auto;
+    border-width: 0.6em;
+    width: 1200px;
+    height: auto;
+    /*Background-image: url('../IMAGES/JDFCREST_burned.png');*/
+     background-color:#CEF6F5;
+    /*background-repeat: repeat-y;*/
+    background-position: 8% 0;
+    font-weight: 700;
+    
+}
+.tableclass{
+    color:blue;
+    border:solid;
+    border-width: 1px;
+
+}
+
+.buttonclass{
+    background-color: #0094ff;
+    border: solid;
+    border-color:white;
+    border-width:thin;
+    color:white;
+    text-align:center;
+    text-decoration: none;
+    display:inline-block;
+    font-size:16px;
+    width: 70px;
+    height: 40px;
+}
+.heading{
+   color:blue;
+   font-size: 25PX;
+  
+   
+}
+
+td{
+    font-family:Arial;
+    color:black;
+}
+
+
+ #content
+
+    {
+      
+        float:inherit;
+        width:1200px;
+        padding:10px;
+       font-family:'Times New Roman';
+	    height: auto;
+}
+
+ 
+
+
+#nav
+{
+	float: left;
+	width: 1200px;
+	background:#0094ff;
+	height:140px;
+	font-size: larger
+}
+
+#nav ul
+{
+	
+	padding: 0;
+	list-style:none;
+}
+
+#nav ul li
+{
+	float:left;
+    list-style-type: none;
+    text-align:center;
+	margin:1px;
+	
+}
+
+
+
+#nav ul li a
+{
+	
+    color:#eeeeee;
+    text-decoration: none;
+    font-family:Calibri;
+    background:#0094ff;
+    display: block;
+	padding: 10px;
+	
+	
+}
+
+#nav li a:hover { background:#2da82d }
+
+#nav ul li ul{
+    display:none;
+}
+
+#nav ul li:hover ul{
+
+display:table-row-group;
+}
+
+.masterfooter{
+
+    float:left;
+    bottom:0px;
+    width: 100%;
+
+}
+
+h1{
+    text-align:center;
+    font-family:'Bookman Old Style';
+    color:#2da82d; 
+    /*color:#0174DF;*/ 
+}
+
+h2{
+    text-align:center;
+    font-family:'Bookman Old Style';
+    color:#0174DF; 
+
+}
+.modal
+    {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: black;
+        z-index: 99;
+        opacity: 0.8;
+        filter: alpha(opacity=80);
+        -moz-opacity: 0.8;
+        min-height: 100%;
+        width: 100%;
+    }
+    .loading
+    {
+        font-family: Arial;
+        font-size: 10pt;
+        border: 5px solid #67CFF5;
+        width: 200px;
+        height: 100px;
+        display: none;
+        position: fixed;
+        background-color: White;
+        z-index: 999;
+    }
+
+    #dvLoading
+{
+   background:#000 url(images/loader.gif) no-repeat center center;
+   height: 100px;
+   width: 100px;
+   position: fixed;
+   z-index: 1000;
+   left: 50%;
+   top: 50%;
+   margin: -25px 0 0 -25px;
+}
+
+#TextboxClass {
+    width:40px
+}
+

@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Lg1ReportingSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ReportingSystem.dbo.P2OEntry' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="P2OEntry">
+    <Key>
+      <PropertyRef Name="RegNo" />
+      <PropertyRef Name="RankId" />
+      <PropertyRef Name="UnitID" />
+      <PropertyRef Name="CoyID" />
+      <PropertyRef Name="EntryID" />
+      <PropertyRef Name="OrdersID" />
+      <PropertyRef Name="OrderNumber" />
+      <PropertyRef Name="DateofOrder" />
+      <PropertyRef Name="Occurrence" />
+      <PropertyRef Name="wefDate" />
+      <PropertyRef Name="EndDate" />
+    </Key>
+    <Property Name="RegNo" Type="int" Nullable="false" />
+    <Property Name="RankId" Type="int" Nullable="false" />
+    <Property Name="UnitID" Type="int" Nullable="false" />
+    <Property Name="CoyID" Type="int" Nullable="false" />
+    <Property Name="EntryID" Type="int" Nullable="false" />
+    <Property Name="OrdersID" Type="int" Nullable="false" />
+    <Property Name="OrderNumber" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="DateofOrder" Type="datetime" Nullable="false" />
+    <Property Name="Occurrence" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="wefDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="EnteredBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <Function Name="sp_CheckBrigadeExist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brigadeName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_CheckifBrigadeExist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brigadeName" Type="nvarchar" Mode="In" />
+    <Parameter Name="countvalue" Type="nvarchar" Mode="InOut" />
+  </Function>
+  <Function Name="sp_DeleteBrigade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="bdeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_DeleteCoy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="unitId" Type="int" Mode="In" />
+    <Parameter Name="bdeid" Type="int" Mode="In" />
+    <Parameter Name="CoyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_DeleteEntryName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="entryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_DeleteOrderType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="orderId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_DeleteRank" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RankId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_EditCoy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="unitId" Type="int" Mode="In" />
+    <Parameter Name="bdeid" Type="int" Mode="In" />
+    <Parameter Name="CoyId" Type="int" Mode="In" />
+    <Parameter Name="Coyname" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_EditUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserPassword" Type="nvarchar" Mode="In" />
+    <Parameter Name="Rights" Type="nvarchar" Mode="In" />
+    <Parameter Name="BrigadeLevel" Type="int" Mode="In" />
+    <Parameter Name="UnitLevel" Type="int" Mode="In" />
+    <Parameter Name="CoyLevel" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_InsertBrigade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brigadeName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_InsertCoy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CoyName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Unitid" Type="int" Mode="In" />
+    <Parameter Name="bdeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_InsertEntryName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EntryName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_InsertOrderType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="orderName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_InsertPt2Orders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="rankid" Type="int" Mode="In" />
+    <Parameter Name="unitid" Type="int" Mode="In" />
+    <Parameter Name="coyid" Type="int" Mode="In" />
+    <Parameter Name="entryid" Type="int" Mode="In" />
+    <Parameter Name="orderid" Type="int" Mode="In" />
+    <Parameter Name="orderno" Type="nvarchar" Mode="In" />
+    <Parameter Name="DateofOrder" Type="date" Mode="In" />
+    <Parameter Name="Occurrence" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="wef" Type="date" Mode="In" />
+    <Parameter Name="end" Type="date" Mode="In" />
+    <Parameter Name="enteredby" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_InsertRank" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RankName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_InsertSecurityDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FirstrName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Gender" Type="nvarchar" Mode="In" />
+    <Parameter Name="MaritalStatus" Type="nvarchar" Mode="In" />
+    <Parameter Name="DOB" Type="date" Mode="In" />
+    <Parameter Name="DOE" Type="date" Mode="In" />
+    <Parameter Name="ROD" Type="date" Mode="In" />
+    <Parameter Name="address" Type="nvarchar" Mode="In" />
+    <Parameter Name="Parish" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_InsertUnit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UnitName" Type="nvarchar" Mode="In" />
+    <Parameter Name="bdeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_InsertUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserPassword" Type="nvarchar" Mode="In" />
+    <Parameter Name="Rights" Type="nvarchar" Mode="In" />
+    <Parameter Name="BrigadeLevel" Type="int" Mode="In" />
+    <Parameter Name="UnitLevel" Type="int" Mode="In" />
+    <Parameter Name="CoyLevel" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_SearchEmployeeInfoID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_SearchSecurityDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_selectBrigade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_selectBrigadebyBde" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BdeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_selectCoy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BdeID" Type="int" Mode="In" />
+    <Parameter Name="unitId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_selectCoybyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="unitId" Type="int" Mode="In" />
+    <Parameter Name="bdeid" Type="int" Mode="In" />
+    <Parameter Name="coyID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_selectEntryName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_selectOrdersType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_selectP20EntrybyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RegNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_selectRank" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_selectUnit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BdeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_selectUnitbyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BdeID" Type="int" Mode="In" />
+    <Parameter Name="UnitID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_SelectUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_selectUserLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_selectUserLoginDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_UpdateBrigade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brigadeName" Type="nvarchar" Mode="In" />
+    <Parameter Name="bdeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_UpdateCoy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CoyName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Unitid" Type="int" Mode="In" />
+    <Parameter Name="Coyid" Type="int" Mode="In" />
+    <Parameter Name="bdeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_UpdateEntryName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="entryName" Type="nvarchar" Mode="In" />
+    <Parameter Name="entryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_UpdateOrderType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="orderName" Type="nvarchar" Mode="In" />
+    <Parameter Name="orderId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_UpdateRank" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RankName" Type="nvarchar" Mode="In" />
+    <Parameter Name="RankId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_UpdateSecurityDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDNum" Type="int" Mode="In" />
+    <Parameter Name="FirstrName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Gender" Type="nvarchar" Mode="In" />
+    <Parameter Name="MaritalStatus" Type="nvarchar" Mode="In" />
+    <Parameter Name="DOB" Type="date" Mode="In" />
+    <Parameter Name="DOE" Type="date" Mode="In" />
+    <Parameter Name="ROD" Type="date" Mode="In" />
+    <Parameter Name="address" Type="nvarchar" Mode="In" />
+    <Parameter Name="Parish" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_UpdateUnit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UnitId" Type="int" Mode="In" />
+    <Parameter Name="UnitName" Type="nvarchar" Mode="In" />
+    <Parameter Name="bdeId" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="Lg1ReportingSystemModelStoreContainer">
+    <EntitySet Name="P2OEntry" EntityType="Self.P2OEntry" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [P2OEntry].[RegNo] AS [RegNo], 
+    [P2OEntry].[RankId] AS [RankId], 
+    [P2OEntry].[UnitID] AS [UnitID], 
+    [P2OEntry].[CoyID] AS [CoyID], 
+    [P2OEntry].[EntryID] AS [EntryID], 
+    [P2OEntry].[OrdersID] AS [OrdersID], 
+    [P2OEntry].[OrderNumber] AS [OrderNumber], 
+    [P2OEntry].[DateofOrder] AS [DateofOrder], 
+    [P2OEntry].[Occurrence] AS [Occurrence], 
+    [P2OEntry].[wefDate] AS [wefDate], 
+    [P2OEntry].[EndDate] AS [EndDate], 
+    [P2OEntry].[EnteredBy] AS [EnteredBy]
+    FROM [dbo].[P2OEntry] AS [P2OEntry]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

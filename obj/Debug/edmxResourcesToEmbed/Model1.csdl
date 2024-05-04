@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Lg3ReportingSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Brigade">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrigadeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Coy">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CoyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UnitID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Unit" Relationship="Self.FK__Coy__UnitID__3C69FB99" FromRole="Coy" ToRole="Unit" />
+    <NavigationProperty Name="Unit1" Relationship="Self.FK__Coy__UnitID__7EF6D905" FromRole="Coy" ToRole="Unit" />
+    <NavigationProperty Name="P2OEntry" Relationship="Self.FK__P2OEntry__CoyID__48CFD27E" FromRole="Coy" ToRole="P2OEntry" />
+    <NavigationProperty Name="P2OEntry1" Relationship="Self.FK__P2OEntry__CoyID__7FEAFD3E" FromRole="Coy" ToRole="P2OEntry" />
+  </EntityType>
+  <EntityType Name="EntryType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="P2OEntry" Relationship="Self.FK__P2OEntry__EntryI__00DF2177" FromRole="EntryType" ToRole="P2OEntry" />
+    <NavigationProperty Name="P2OEntry1" Relationship="Self.FK__P2OEntry__EntryI__49C3F6B7" FromRole="EntryType" ToRole="P2OEntry" />
+  </EntityType>
+  <EntityType Name="OrdersType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrdersName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="P2OEntry" Relationship="Self.FK__P2OEntry__Orders__01D345B0" FromRole="OrdersType" ToRole="P2OEntry" />
+    <NavigationProperty Name="P2OEntry1" Relationship="Self.FK__P2OEntry__Orders__4AB81AF0" FromRole="OrdersType" ToRole="P2OEntry" />
+  </EntityType>
+  <EntityType Name="Password">
+    <Key>
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="UserPassword" />
+    </Key>
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rights" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrigadeLevel" Type="Int32" />
+    <Property Name="UntLevel" Type="Int32" />
+    <Property Name="CoyLevel" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Rank">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RankName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="P2OEntry" Relationship="Self.FK__P2OEntry__RankId__02C769E9" FromRole="Rank" ToRole="P2OEntry" />
+    <NavigationProperty Name="P2OEntry1" Relationship="Self.FK__P2OEntry__RankId__46E78A0C" FromRole="Rank" ToRole="P2OEntry" />
+  </EntityType>
+  <EntityType Name="SoldierInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaritalStatus" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Nullable="false" />
+    <Property Name="DOE" Type="DateTime" Nullable="false" />
+    <Property Name="ROD" Type="DateTime" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Parish" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TerminationDate" Type="DateTime" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="P2OEntry" Relationship="Self.FK__P2OEntry__RegNo__03BB8E22" FromRole="SoldierInfo" ToRole="P2OEntry" />
+    <NavigationProperty Name="P2OEntry1" Relationship="Self.FK__P2OEntry__RegNo__45F365D3" FromRole="SoldierInfo" ToRole="P2OEntry" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BdeID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Coys" Relationship="Self.FK__Coy__UnitID__3C69FB99" FromRole="Unit" ToRole="Coy" />
+    <NavigationProperty Name="Coys1" Relationship="Self.FK__Coy__UnitID__7EF6D905" FromRole="Unit" ToRole="Coy" />
+    <NavigationProperty Name="P2OEntry" Relationship="Self.FK__P2OEntry__UnitID__04AFB25B" FromRole="Unit" ToRole="P2OEntry" />
+    <NavigationProperty Name="P2OEntry1" Relationship="Self.FK__P2OEntry__UnitID__47DBAE45" FromRole="Unit" ToRole="P2OEntry" />
+  </EntityType>
+  <EntityType Name="P2OEntry">
+    <Key>
+      <PropertyRef Name="RegNo" />
+      <PropertyRef Name="RankId" />
+      <PropertyRef Name="UnitID" />
+      <PropertyRef Name="CoyID" />
+      <PropertyRef Name="EntryID" />
+      <PropertyRef Name="OrdersID" />
+      <PropertyRef Name="OrderNumber" />
+      <PropertyRef Name="DateofOrder" />
+      <PropertyRef Name="Occurrence" />
+      <PropertyRef Name="wefDate" />
+      <PropertyRef Name="EndDate" />
+    </Key>
+    <Property Name="RegNo" Type="Int32" Nullable="false" />
+    <Property Name="RankId" Type="Int32" Nullable="false" />
+    <Property Name="UnitID" Type="Int32" Nullable="false" />
+    <Property Name="CoyID" Type="Int32" Nullable="false" />
+    <Property Name="EntryID" Type="Int32" Nullable="false" />
+    <Property Name="OrdersID" Type="Int32" Nullable="false" />
+    <Property Name="OrderNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DateofOrder" Type="DateTime" Nullable="false" />
+    <Property Name="Occurrence" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="wefDate" Type="DateTime" Nullable="false" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" />
+    <Property Name="EnteredBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Coy" Relationship="Self.FK__P2OEntry__CoyID__48CFD27E" FromRole="P2OEntry" ToRole="Coy" />
+    <NavigationProperty Name="Coy1" Relationship="Self.FK__P2OEntry__CoyID__7FEAFD3E" FromRole="P2OEntry" ToRole="Coy" />
+    <NavigationProperty Name="EntryType" Relationship="Self.FK__P2OEntry__EntryI__00DF2177" FromRole="P2OEntry" ToRole="EntryType" />
+    <NavigationProperty Name="EntryType1" Relationship="Self.FK__P2OEntry__EntryI__49C3F6B7" FromRole="P2OEntry" ToRole="EntryType" />
+    <NavigationProperty Name="OrdersType" Relationship="Self.FK__P2OEntry__Orders__01D345B0" FromRole="P2OEntry" ToRole="OrdersType" />
+    <NavigationProperty Name="OrdersType1" Relationship="Self.FK__P2OEntry__Orders__4AB81AF0" FromRole="P2OEntry" ToRole="OrdersType" />
+    <NavigationProperty Name="Rank" Relationship="Self.FK__P2OEntry__RankId__02C769E9" FromRole="P2OEntry" ToRole="Rank" />
+    <NavigationProperty Name="Rank1" Relationship="Self.FK__P2OEntry__RankId__46E78A0C" FromRole="P2OEntry" ToRole="Rank" />
+    <NavigationProperty Name="SoldierInfo" Relationship="Self.FK__P2OEntry__RegNo__03BB8E22" FromRole="P2OEntry" ToRole="SoldierInfo" />
+    <NavigationProperty Name="SoldierInfo1" Relationship="Self.FK__P2OEntry__RegNo__45F365D3" FromRole="P2OEntry" ToRole="SoldierInfo" />
+    <NavigationProperty Name="Unit" Relationship="Self.FK__P2OEntry__UnitID__04AFB25B" FromRole="P2OEntry" ToRole="Unit" />
+    <NavigationProperty Name="Unit1" Relationship="Self.FK__P2OEntry__UnitID__47DBAE45" FromRole="P2OEntry" ToRole="Unit" />
+  </EntityType>
+  <Association Name="FK__Coy__UnitID__3C69FB99">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="Coy" Type="Self.Coy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Coy">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Coy__UnitID__7EF6D905">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="Coy" Type="Self.Coy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Coy">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__CoyID__48CFD27E">
+    <End Role="Coy" Type="Self.Coy" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coy">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="CoyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__CoyID__7FEAFD3E">
+    <End Role="Coy" Type="Self.Coy" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coy">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="CoyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__EntryI__00DF2177">
+    <End Role="EntryType" Type="Self.EntryType" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EntryType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="EntryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__EntryI__49C3F6B7">
+    <End Role="EntryType" Type="Self.EntryType" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EntryType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="EntryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__Orders__01D345B0">
+    <End Role="OrdersType" Type="Self.OrdersType" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrdersType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="OrdersID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__Orders__4AB81AF0">
+    <End Role="OrdersType" Type="Self.OrdersType" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrdersType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="OrdersID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__RankId__02C769E9">
+    <End Role="Rank" Type="Self.Rank" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rank">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="RankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__RankId__46E78A0C">
+    <End Role="Rank" Type="Self.Rank" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rank">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="RankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__RegNo__03BB8E22">
+    <End Role="SoldierInfo" Type="Self.SoldierInfo" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SoldierInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="RegNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__RegNo__45F365D3">
+    <End Role="SoldierInfo" Type="Self.SoldierInfo" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SoldierInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="RegNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__UnitID__04AFB25B">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__UnitID__47DBAE45">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Lg3ReportingSystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Brigades" EntityType="Self.Brigade" />
+    <EntitySet Name="Coys" EntityType="Self.Coy" />
+    <EntitySet Name="EntryTypes" EntityType="Self.EntryType" />
+    <EntitySet Name="OrdersTypes" EntityType="Self.OrdersType" />
+    <EntitySet Name="Passwords" EntityType="Self.Password" />
+    <EntitySet Name="Ranks" EntityType="Self.Rank" />
+    <EntitySet Name="SoldierInfoes" EntityType="Self.SoldierInfo" />
+    <EntitySet Name="Units" EntityType="Self.Unit" />
+    <EntitySet Name="P2OEntry" EntityType="Self.P2OEntry" />
+    <AssociationSet Name="FK__Coy__UnitID__3C69FB99" Association="Self.FK__Coy__UnitID__3C69FB99">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Coy" EntitySet="Coys" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Coy__UnitID__7EF6D905" Association="Self.FK__Coy__UnitID__7EF6D905">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Coy" EntitySet="Coys" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__CoyID__48CFD27E" Association="Self.FK__P2OEntry__CoyID__48CFD27E">
+      <End Role="Coy" EntitySet="Coys" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__CoyID__7FEAFD3E" Association="Self.FK__P2OEntry__CoyID__7FEAFD3E">
+      <End Role="Coy" EntitySet="Coys" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__EntryI__00DF2177" Association="Self.FK__P2OEntry__EntryI__00DF2177">
+      <End Role="EntryType" EntitySet="EntryTypes" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__EntryI__49C3F6B7" Association="Self.FK__P2OEntry__EntryI__49C3F6B7">
+      <End Role="EntryType" EntitySet="EntryTypes" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__Orders__01D345B0" Association="Self.FK__P2OEntry__Orders__01D345B0">
+      <End Role="OrdersType" EntitySet="OrdersTypes" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__Orders__4AB81AF0" Association="Self.FK__P2OEntry__Orders__4AB81AF0">
+      <End Role="OrdersType" EntitySet="OrdersTypes" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__RankId__02C769E9" Association="Self.FK__P2OEntry__RankId__02C769E9">
+      <End Role="Rank" EntitySet="Ranks" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__RankId__46E78A0C" Association="Self.FK__P2OEntry__RankId__46E78A0C">
+      <End Role="Rank" EntitySet="Ranks" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__RegNo__03BB8E22" Association="Self.FK__P2OEntry__RegNo__03BB8E22">
+      <End Role="SoldierInfo" EntitySet="SoldierInfoes" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__RegNo__45F365D3" Association="Self.FK__P2OEntry__RegNo__45F365D3">
+      <End Role="SoldierInfo" EntitySet="SoldierInfoes" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__UnitID__04AFB25B" Association="Self.FK__P2OEntry__UnitID__04AFB25B">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__UnitID__47DBAE45" Association="Self.FK__P2OEntry__UnitID__47DBAE45">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

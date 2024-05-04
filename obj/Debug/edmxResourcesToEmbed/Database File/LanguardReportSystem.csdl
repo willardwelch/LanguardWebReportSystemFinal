@@ -1,0 +1,704 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LanguardReportingSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="countbdeCoy_Result">
+    <Property Name="UnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="No_Of_Coy" Type="Int32" />
+  </ComplexType>
+  <ComplexType Name="countbdeUnit_Result">
+    <Property Name="brigadeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="No_Of_Unit" Type="Int32" />
+  </ComplexType>
+  <ComplexType Name="GetSoldiersWithinCoy_Result">
+    <Property Name="Rank" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Brigade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="unit" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </ComplexType>
+  <ComplexType Name="GetSoldiersWithP2OEntry_Result">
+    <Property Name="Rank" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Brigade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="unit" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Occurrence" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </ComplexType>
+  <EntityType Name="Brigade">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrigadeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Units" Relationship="Self.FK__Unit__BdeID__05A3D694" FromRole="Brigade" ToRole="Unit" />
+    <NavigationProperty Name="Units1" Relationship="Self.FK__Unit__BdeID__398D8EEE" FromRole="Brigade" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="Coy">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CoyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UnitID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Unit" Relationship="Self.FK__Coy__UnitID__3C69FB99" FromRole="Coy" ToRole="Unit" />
+    <NavigationProperty Name="Unit1" Relationship="Self.FK__Coy__UnitID__7EF6D905" FromRole="Coy" ToRole="Unit" />
+    <NavigationProperty Name="P2OEntry" Relationship="Self.FK__P2OEntry__CoyID__48CFD27E" FromRole="Coy" ToRole="P2OEntry" />
+    <NavigationProperty Name="P2OEntry1" Relationship="Self.FK__P2OEntry__CoyID__7FEAFD3E" FromRole="Coy" ToRole="P2OEntry" />
+  </EntityType>
+  <EntityType Name="EntryType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="P2OEntry" Relationship="Self.FK__P2OEntry__EntryI__00DF2177" FromRole="EntryType" ToRole="P2OEntry" />
+    <NavigationProperty Name="P2OEntry1" Relationship="Self.FK__P2OEntry__EntryI__49C3F6B7" FromRole="EntryType" ToRole="P2OEntry" />
+  </EntityType>
+  <EntityType Name="OrdersType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrdersName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="P2OEntry" Relationship="Self.FK__P2OEntry__Orders__01D345B0" FromRole="OrdersType" ToRole="P2OEntry" />
+    <NavigationProperty Name="P2OEntry1" Relationship="Self.FK__P2OEntry__Orders__4AB81AF0" FromRole="OrdersType" ToRole="P2OEntry" />
+  </EntityType>
+  <EntityType Name="Rank">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RankName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="P2OEntry" Relationship="Self.FK__P2OEntry__RankId__02C769E9" FromRole="Rank" ToRole="P2OEntry" />
+    <NavigationProperty Name="P2OEntry1" Relationship="Self.FK__P2OEntry__RankId__46E78A0C" FromRole="Rank" ToRole="P2OEntry" />
+  </EntityType>
+  <EntityType Name="SoldierInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaritalStatus" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DOE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ROD" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Parish" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TerminationDate" Type="DateTime" Precision="0" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="P2OEntry" Relationship="Self.FK__P2OEntry__RegNo__03BB8E22" FromRole="SoldierInfo" ToRole="P2OEntry" />
+    <NavigationProperty Name="P2OEntry1" Relationship="Self.FK__P2OEntry__RegNo__45F365D3" FromRole="SoldierInfo" ToRole="P2OEntry" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BdeID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Brigade" Relationship="Self.FK__Unit__BdeID__05A3D694" FromRole="Unit" ToRole="Brigade" />
+    <NavigationProperty Name="Brigade1" Relationship="Self.FK__Unit__BdeID__398D8EEE" FromRole="Unit" ToRole="Brigade" />
+    <NavigationProperty Name="Coys" Relationship="Self.FK__Coy__UnitID__3C69FB99" FromRole="Unit" ToRole="Coy" />
+    <NavigationProperty Name="Coys1" Relationship="Self.FK__Coy__UnitID__7EF6D905" FromRole="Unit" ToRole="Coy" />
+    <NavigationProperty Name="P2OEntry" Relationship="Self.FK__P2OEntry__UnitID__04AFB25B" FromRole="Unit" ToRole="P2OEntry" />
+    <NavigationProperty Name="P2OEntry1" Relationship="Self.FK__P2OEntry__UnitID__47DBAE45" FromRole="Unit" ToRole="P2OEntry" />
+  </EntityType>
+  <EntityType Name="Employee_Audit_Test">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Audit_Action" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="P2OEntry">
+    <Key>
+      <PropertyRef Name="RegNo" />
+      <PropertyRef Name="RankId" />
+      <PropertyRef Name="UnitID" />
+      <PropertyRef Name="CoyID" />
+      <PropertyRef Name="EntryID" />
+      <PropertyRef Name="OrdersID" />
+      <PropertyRef Name="OrderNumber" />
+      <PropertyRef Name="DateofOrder" />
+      <PropertyRef Name="Occurrence" />
+      <PropertyRef Name="wefDate" />
+      <PropertyRef Name="EndDate" />
+    </Key>
+    <Property Name="RegNo" Type="Int32" Nullable="false" />
+    <Property Name="RankId" Type="Int32" Nullable="false" />
+    <Property Name="UnitID" Type="Int32" Nullable="false" />
+    <Property Name="CoyID" Type="Int32" Nullable="false" />
+    <Property Name="EntryID" Type="Int32" Nullable="false" />
+    <Property Name="OrdersID" Type="Int32" Nullable="false" />
+    <Property Name="OrderNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DateofOrder" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Occurrence" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="wefDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EnteredBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Coy" Relationship="Self.FK__P2OEntry__CoyID__48CFD27E" FromRole="P2OEntry" ToRole="Coy" />
+    <NavigationProperty Name="Coy1" Relationship="Self.FK__P2OEntry__CoyID__7FEAFD3E" FromRole="P2OEntry" ToRole="Coy" />
+    <NavigationProperty Name="EntryType" Relationship="Self.FK__P2OEntry__EntryI__00DF2177" FromRole="P2OEntry" ToRole="EntryType" />
+    <NavigationProperty Name="EntryType1" Relationship="Self.FK__P2OEntry__EntryI__49C3F6B7" FromRole="P2OEntry" ToRole="EntryType" />
+    <NavigationProperty Name="OrdersType" Relationship="Self.FK__P2OEntry__Orders__01D345B0" FromRole="P2OEntry" ToRole="OrdersType" />
+    <NavigationProperty Name="OrdersType1" Relationship="Self.FK__P2OEntry__Orders__4AB81AF0" FromRole="P2OEntry" ToRole="OrdersType" />
+    <NavigationProperty Name="Rank" Relationship="Self.FK__P2OEntry__RankId__02C769E9" FromRole="P2OEntry" ToRole="Rank" />
+    <NavigationProperty Name="Rank1" Relationship="Self.FK__P2OEntry__RankId__46E78A0C" FromRole="P2OEntry" ToRole="Rank" />
+    <NavigationProperty Name="SoldierInfo" Relationship="Self.FK__P2OEntry__RegNo__03BB8E22" FromRole="P2OEntry" ToRole="SoldierInfo" />
+    <NavigationProperty Name="SoldierInfo1" Relationship="Self.FK__P2OEntry__RegNo__45F365D3" FromRole="P2OEntry" ToRole="SoldierInfo" />
+    <NavigationProperty Name="Unit" Relationship="Self.FK__P2OEntry__UnitID__04AFB25B" FromRole="P2OEntry" ToRole="Unit" />
+    <NavigationProperty Name="Unit1" Relationship="Self.FK__P2OEntry__UnitID__47DBAE45" FromRole="P2OEntry" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="Password">
+    <Key>
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="UserPassword" />
+      <PropertyRef Name="Rights" />
+    </Key>
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rights" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrigadeLevel" Type="Int32" />
+    <Property Name="UntLevel" Type="Int32" />
+    <Property Name="CoyLevel" Type="Int32" />
+  </EntityType>
+  <Association Name="FK__Unit__BdeID__05A3D694">
+    <End Role="Brigade" Type="Self.Brigade" Multiplicity="1" />
+    <End Role="Unit" Type="Self.Unit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brigade">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Unit">
+        <PropertyRef Name="BdeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Unit__BdeID__398D8EEE">
+    <End Role="Brigade" Type="Self.Brigade" Multiplicity="1" />
+    <End Role="Unit" Type="Self.Unit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brigade">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Unit">
+        <PropertyRef Name="BdeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Coy__UnitID__3C69FB99">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="Coy" Type="Self.Coy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Coy">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Coy__UnitID__7EF6D905">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="Coy" Type="Self.Coy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Coy">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__CoyID__48CFD27E">
+    <End Role="Coy" Type="Self.Coy" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coy">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="CoyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__CoyID__7FEAFD3E">
+    <End Role="Coy" Type="Self.Coy" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coy">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="CoyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__EntryI__00DF2177">
+    <End Role="EntryType" Type="Self.EntryType" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EntryType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="EntryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__EntryI__49C3F6B7">
+    <End Role="EntryType" Type="Self.EntryType" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EntryType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="EntryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__Orders__01D345B0">
+    <End Role="OrdersType" Type="Self.OrdersType" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrdersType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="OrdersID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__Orders__4AB81AF0">
+    <End Role="OrdersType" Type="Self.OrdersType" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrdersType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="OrdersID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__RankId__02C769E9">
+    <End Role="Rank" Type="Self.Rank" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rank">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="RankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__RankId__46E78A0C">
+    <End Role="Rank" Type="Self.Rank" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rank">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="RankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__RegNo__03BB8E22">
+    <End Role="SoldierInfo" Type="Self.SoldierInfo" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SoldierInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="RegNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__RegNo__45F365D3">
+    <End Role="SoldierInfo" Type="Self.SoldierInfo" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SoldierInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="RegNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__UnitID__04AFB25B">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__P2OEntry__UnitID__47DBAE45">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="P2OEntry" Type="Self.P2OEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="P2OEntry">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Brigades" EntityType="Self.Brigade" />
+    <EntitySet Name="Coys" EntityType="Self.Coy" />
+    <EntitySet Name="EntryTypes" EntityType="Self.EntryType" />
+    <EntitySet Name="OrdersTypes" EntityType="Self.OrdersType" />
+    <EntitySet Name="Ranks" EntityType="Self.Rank" />
+    <EntitySet Name="SoldierInfoes" EntityType="Self.SoldierInfo" />
+    <EntitySet Name="Units" EntityType="Self.Unit" />
+    <EntitySet Name="Employee_Audit_Test" EntityType="Self.Employee_Audit_Test" />
+    <EntitySet Name="P2OEntry" EntityType="Self.P2OEntry" />
+    <EntitySet Name="Passwords" EntityType="Self.Password" />
+    <AssociationSet Name="FK__Unit__BdeID__05A3D694" Association="Self.FK__Unit__BdeID__05A3D694">
+      <End Role="Brigade" EntitySet="Brigades" />
+      <End Role="Unit" EntitySet="Units" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Unit__BdeID__398D8EEE" Association="Self.FK__Unit__BdeID__398D8EEE">
+      <End Role="Brigade" EntitySet="Brigades" />
+      <End Role="Unit" EntitySet="Units" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Coy__UnitID__3C69FB99" Association="Self.FK__Coy__UnitID__3C69FB99">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Coy" EntitySet="Coys" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Coy__UnitID__7EF6D905" Association="Self.FK__Coy__UnitID__7EF6D905">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Coy" EntitySet="Coys" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__CoyID__48CFD27E" Association="Self.FK__P2OEntry__CoyID__48CFD27E">
+      <End Role="Coy" EntitySet="Coys" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__CoyID__7FEAFD3E" Association="Self.FK__P2OEntry__CoyID__7FEAFD3E">
+      <End Role="Coy" EntitySet="Coys" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__EntryI__00DF2177" Association="Self.FK__P2OEntry__EntryI__00DF2177">
+      <End Role="EntryType" EntitySet="EntryTypes" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__EntryI__49C3F6B7" Association="Self.FK__P2OEntry__EntryI__49C3F6B7">
+      <End Role="EntryType" EntitySet="EntryTypes" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__Orders__01D345B0" Association="Self.FK__P2OEntry__Orders__01D345B0">
+      <End Role="OrdersType" EntitySet="OrdersTypes" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__Orders__4AB81AF0" Association="Self.FK__P2OEntry__Orders__4AB81AF0">
+      <End Role="OrdersType" EntitySet="OrdersTypes" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__RankId__02C769E9" Association="Self.FK__P2OEntry__RankId__02C769E9">
+      <End Role="Rank" EntitySet="Ranks" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__RankId__46E78A0C" Association="Self.FK__P2OEntry__RankId__46E78A0C">
+      <End Role="Rank" EntitySet="Ranks" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__RegNo__03BB8E22" Association="Self.FK__P2OEntry__RegNo__03BB8E22">
+      <End Role="SoldierInfo" EntitySet="SoldierInfoes" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__RegNo__45F365D3" Association="Self.FK__P2OEntry__RegNo__45F365D3">
+      <End Role="SoldierInfo" EntitySet="SoldierInfoes" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__UnitID__04AFB25B" Association="Self.FK__P2OEntry__UnitID__04AFB25B">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK__P2OEntry__UnitID__47DBAE45" Association="Self.FK__P2OEntry__UnitID__47DBAE45">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="P2OEntry" EntitySet="P2OEntry" />
+    </AssociationSet>
+    <FunctionImport Name="countbdeCoy" IsComposable="true" ReturnType="Collection(LanguardReportingSystemModel.countbdeCoy_Result)">
+      <Parameter Name="bdeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="countbdeUnit" IsComposable="true" ReturnType="Collection(LanguardReportingSystemModel.countbdeUnit_Result)">
+      <Parameter Name="bdeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetSoldiersWithinCoy" IsComposable="true" ReturnType="Collection(LanguardReportingSystemModel.GetSoldiersWithinCoy_Result)" />
+    <FunctionImport Name="GetSoldiersWithP2OEntry" IsComposable="true" ReturnType="Collection(LanguardReportingSystemModel.GetSoldiersWithP2OEntry_Result)" />
+    <FunctionImport Name="sp_CheckBrigadeExist">
+      <Parameter Name="brigadeName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CheckifBrigadeExist" ReturnType="Collection(Int32)">
+      <Parameter Name="brigadeName" Mode="In" Type="String" />
+      <Parameter Name="countvalue" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CountUnit" ReturnType="Collection(Int32)">
+      <Parameter Name="bdeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_CountUnitdefault">
+      <Parameter Name="bdeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_DeleteBrigade">
+      <Parameter Name="bdeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_DeleteCoy">
+      <Parameter Name="unitId" Mode="In" Type="Int32" />
+      <Parameter Name="bdeid" Mode="In" Type="Int32" />
+      <Parameter Name="CoyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_DeleteEntryName">
+      <Parameter Name="entryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_DeleteOrderType">
+      <Parameter Name="orderId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_DeleteUnit">
+      <Parameter Name="UnitId" Mode="In" Type="Int32" />
+      <Parameter Name="bdeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_EditCoy">
+      <Parameter Name="unitId" Mode="In" Type="Int32" />
+      <Parameter Name="bdeid" Mode="In" Type="Int32" />
+      <Parameter Name="CoyId" Mode="In" Type="Int32" />
+      <Parameter Name="Coyname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_EditUser">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="UserPassword" Mode="In" Type="String" />
+      <Parameter Name="Rights" Mode="In" Type="String" />
+      <Parameter Name="BrigadeLevel" Mode="In" Type="Int32" />
+      <Parameter Name="UnitLevel" Mode="In" Type="Int32" />
+      <Parameter Name="CoyLevel" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertBrigade">
+      <Parameter Name="brigadeName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertCoy">
+      <Parameter Name="CoyName" Mode="In" Type="String" />
+      <Parameter Name="Unitid" Mode="In" Type="Int32" />
+      <Parameter Name="bdeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertEntryName">
+      <Parameter Name="EntryName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertOrderType">
+      <Parameter Name="orderName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertPt2Orders">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="rankid" Mode="In" Type="Int32" />
+      <Parameter Name="unitid" Mode="In" Type="Int32" />
+      <Parameter Name="coyid" Mode="In" Type="Int32" />
+      <Parameter Name="entryid" Mode="In" Type="Int32" />
+      <Parameter Name="orderid" Mode="In" Type="Int32" />
+      <Parameter Name="orderno" Mode="In" Type="String" />
+      <Parameter Name="DateofOrder" Mode="In" Type="DateTime" />
+      <Parameter Name="Occurrence" Mode="In" Type="String" />
+      <Parameter Name="wef" Mode="In" Type="DateTime" />
+      <Parameter Name="end" Mode="In" Type="DateTime" />
+      <Parameter Name="enteredby" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertRank">
+      <Parameter Name="RankName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertSecurityDetail">
+      <Parameter Name="FirstrName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="MaritalStatus" Mode="In" Type="String" />
+      <Parameter Name="DOB" Mode="In" Type="DateTime" />
+      <Parameter Name="DOE" Mode="In" Type="DateTime" />
+      <Parameter Name="ROD" Mode="In" Type="DateTime" />
+      <Parameter Name="address" Mode="In" Type="String" />
+      <Parameter Name="Parish" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertUnit">
+      <Parameter Name="UnitName" Mode="In" Type="String" />
+      <Parameter Name="bdeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_InsertUser">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="UserPassword" Mode="In" Type="String" />
+      <Parameter Name="Rights" Mode="In" Type="String" />
+      <Parameter Name="BrigadeLevel" Mode="In" Type="Int32" />
+      <Parameter Name="UnitLevel" Mode="In" Type="Int32" />
+      <Parameter Name="CoyLevel" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SearchEmployeeInfoID" ReturnType="Collection(LanguardReportingSystemModel.sp_SearchEmployeeInfoID_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SearchSecurityDetail" ReturnType="Collection(LanguardReportingSystemModel.sp_SearchSecurityDetail_Result)">
+      <Parameter Name="LastName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_selectBrigade" ReturnType="Collection(LanguardReportingSystemModel.sp_selectBrigade_Result)" />
+    <FunctionImport Name="sp_selectBrigadebyBde" ReturnType="Collection(LanguardReportingSystemModel.sp_selectBrigadebyBde_Result)">
+      <Parameter Name="BdeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_selectCoy" ReturnType="Collection(LanguardReportingSystemModel.sp_selectCoy_Result)">
+      <Parameter Name="unitId" Mode="In" Type="Int32" />
+      <Parameter Name="bdeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_selectCoybyID" ReturnType="Collection(LanguardReportingSystemModel.sp_selectCoybyID_Result)">
+      <Parameter Name="unitId" Mode="In" Type="Int32" />
+      <Parameter Name="bdeid" Mode="In" Type="Int32" />
+      <Parameter Name="coyID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_selectEntryName" ReturnType="Collection(LanguardReportingSystemModel.sp_selectEntryName_Result)" />
+    <FunctionImport Name="sp_selectOrdersType" ReturnType="Collection(LanguardReportingSystemModel.sp_selectOrdersType_Result)" />
+    <FunctionImport Name="sp_selectP20EntrybyID" ReturnType="Collection(LanguardReportingSystemModel.sp_selectP20EntrybyID_Result)">
+      <Parameter Name="RegNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_selectRank" ReturnType="Collection(LanguardReportingSystemModel.sp_selectRank_Result)" />
+    <FunctionImport Name="sp_selectUnit" ReturnType="Collection(LanguardReportingSystemModel.sp_selectUnit_Result)">
+      <Parameter Name="BdeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_selectUnitbyID" ReturnType="Collection(LanguardReportingSystemModel.sp_selectUnitbyID_Result)">
+      <Parameter Name="BdeID" Mode="In" Type="Int32" />
+      <Parameter Name="UnitID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SelectUser" ReturnType="Collection(LanguardReportingSystemModel.sp_SelectUser_Result)" />
+    <FunctionImport Name="sp_selectUserLogin" ReturnType="Collection(Int32)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_selectUserLoginDetail" ReturnType="Collection(LanguardReportingSystemModel.sp_selectUserLoginDetail_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_UpdateBrigade">
+      <Parameter Name="brigadeName" Mode="In" Type="String" />
+      <Parameter Name="bdeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_UpdateCoy">
+      <Parameter Name="CoyName" Mode="In" Type="String" />
+      <Parameter Name="Unitid" Mode="In" Type="Int32" />
+      <Parameter Name="Coyid" Mode="In" Type="Int32" />
+      <Parameter Name="bdeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_UpdateEntryName">
+      <Parameter Name="entryName" Mode="In" Type="String" />
+      <Parameter Name="entryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_UpdateOrderType">
+      <Parameter Name="orderName" Mode="In" Type="String" />
+      <Parameter Name="orderId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_UpdateRank">
+      <Parameter Name="RankName" Mode="In" Type="String" />
+      <Parameter Name="RankId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_UpdateSecurityDetail">
+      <Parameter Name="IDNum" Mode="In" Type="Int32" />
+      <Parameter Name="FirstrName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="MaritalStatus" Mode="In" Type="String" />
+      <Parameter Name="DOB" Mode="In" Type="DateTime" />
+      <Parameter Name="DOE" Mode="In" Type="DateTime" />
+      <Parameter Name="ROD" Mode="In" Type="DateTime" />
+      <Parameter Name="address" Mode="In" Type="String" />
+      <Parameter Name="Parish" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_UpdateUnit">
+      <Parameter Name="UnitId" Mode="In" Type="Int32" />
+      <Parameter Name="UnitName" Mode="In" Type="String" />
+      <Parameter Name="bdeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_SearchEmployeeInfoID_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="First_Name" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Last_Name" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Marital_Staus" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="Date_of_Birth" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_SearchSecurityDetail_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="First_Name" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Last_Name" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Marital_Staus" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="Date_of_Birth" Nullable="true" />
+    <Property Type="DateTime" Name="Date_of_Enlistment" Nullable="true" />
+    <Property Type="DateTime" Name="Run_Out_Date" Nullable="true" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="300" />
+    <Property Type="String" Name="Parish" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_selectBrigade_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Brigade" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_selectBrigadebyBde_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Brigade" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_selectCoy_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Company" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_selectCoybyID_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Company" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_selectEntryName_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Entry" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_selectOrdersType_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="ordersName" Nullable="false" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="sp_selectP20EntrybyID_Result">
+    <Property Type="String" Name="Rank" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="First_Name" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Last_Name" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Unit" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Company" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Entry" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="OrderNumber" Nullable="false" MaxLength="6" />
+    <Property Type="String" Name="Occurrence" Nullable="false" />
+    <Property Type="DateTime" Name="DateofOrder" Nullable="false" />
+    <Property Type="DateTime" Name="wefDate" Nullable="false" />
+    <Property Type="DateTime" Name="EndDate" Nullable="false" />
+    <Property Type="String" Name="EnteredBy" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_selectRank_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="RankName" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_selectUnit_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Unit" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_selectUnitbyID_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Unit" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_SelectUser_Result">
+    <Property Type="String" Name="Users" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="UserPassword" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Rights" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="BrigadeLevel" Nullable="true" />
+    <Property Type="Int32" Name="UntLevel" Nullable="true" />
+    <Property Type="Int32" Name="CoyLevel" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_selectUserLoginDetail_Result">
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Rights" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="BrigadeLevel" Nullable="true" />
+    <Property Type="Int32" Name="UntLevel" Nullable="true" />
+    <Property Type="Int32" Name="CoyLevel" Nullable="true" />
+  </ComplexType>
+</Schema>

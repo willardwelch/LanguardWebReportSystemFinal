@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Lg1ReportingSystemModelStoreContainer" CdmEntityContainer="Lg1ReportingSystemEntities">
+    <EntitySetMapping Name="P2OEntry">
+      <EntityTypeMapping TypeName="IsTypeOf(Lg1ReportingSystemModel.P2OEntry)">
+        <MappingFragment StoreEntitySet="P2OEntry">
+          <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+          <ScalarProperty Name="RankId" ColumnName="RankId" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="CoyID" ColumnName="CoyID" />
+          <ScalarProperty Name="EntryID" ColumnName="EntryID" />
+          <ScalarProperty Name="OrdersID" ColumnName="OrdersID" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="DateofOrder" ColumnName="DateofOrder" />
+          <ScalarProperty Name="Occurrence" ColumnName="Occurrence" />
+          <ScalarProperty Name="wefDate" ColumnName="wefDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="EnteredBy" ColumnName="EnteredBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LGNewReportingSystemEntitiesStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Brigade">
+      <EntityTypeMapping TypeName="LGNewReportingSystemEntities.Brigade">
+        <MappingFragment StoreEntitySet="Brigade">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BrigadeName" ColumnName="BrigadeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Coy">
+      <EntityTypeMapping TypeName="LGNewReportingSystemEntities.Coy">
+        <MappingFragment StoreEntitySet="Coy">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CoyName" ColumnName="CoyName" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EntryType">
+      <EntityTypeMapping TypeName="LGNewReportingSystemEntities.EntryType">
+        <MappingFragment StoreEntitySet="EntryType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EntryName" ColumnName="EntryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdersType">
+      <EntityTypeMapping TypeName="LGNewReportingSystemEntities.OrdersType">
+        <MappingFragment StoreEntitySet="OrdersType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrdersName" ColumnName="OrdersName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rank">
+      <EntityTypeMapping TypeName="LGNewReportingSystemEntities.Rank">
+        <MappingFragment StoreEntitySet="Rank">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RankName" ColumnName="RankName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SoldierInfo">
+      <EntityTypeMapping TypeName="LGNewReportingSystemEntities.SoldierInfo">
+        <MappingFragment StoreEntitySet="SoldierInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="DOE" ColumnName="DOE" />
+          <ScalarProperty Name="ROD" ColumnName="ROD" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Parish" ColumnName="Parish" />
+          <ScalarProperty Name="TerminationDate" ColumnName="TerminationDate" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unit">
+      <EntityTypeMapping TypeName="LGNewReportingSystemEntities.Unit">
+        <MappingFragment StoreEntitySet="Unit">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="BdeID" ColumnName="BdeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="P2OEntry">
+      <EntityTypeMapping TypeName="LGNewReportingSystemEntities.P2OEntry">
+        <MappingFragment StoreEntitySet="P2OEntry">
+          <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+          <ScalarProperty Name="RankId" ColumnName="RankId" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="CoyID" ColumnName="CoyID" />
+          <ScalarProperty Name="EntryID" ColumnName="EntryID" />
+          <ScalarProperty Name="OrdersID" ColumnName="OrdersID" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="DateofOrder" ColumnName="DateofOrder" />
+          <ScalarProperty Name="Occurrence" ColumnName="Occurrence" />
+          <ScalarProperty Name="wefDate" ColumnName="wefDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="EnteredBy" ColumnName="EnteredBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Password">
+      <EntityTypeMapping TypeName="LGNewReportingSystemEntities.Password">
+        <MappingFragment StoreEntitySet="Password">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="Rights" ColumnName="Rights" />
+          <ScalarProperty Name="BrigadeLevel" ColumnName="BrigadeLevel" />
+          <ScalarProperty Name="UntLevel" ColumnName="UntLevel" />
+          <ScalarProperty Name="CoyLevel" ColumnName="CoyLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_CheckBrigadeExist" FunctionName="LGNewReportingSystemEntities.Store.sp_CheckBrigadeExist" />
+    <FunctionImportMapping FunctionImportName="sp_CheckifBrigadeExist" FunctionName="LGNewReportingSystemEntities.Store.sp_CheckifBrigadeExist" />
+    <FunctionImportMapping FunctionImportName="sp_DeleteBrigade" FunctionName="LGNewReportingSystemEntities.Store.sp_DeleteBrigade" />
+    <FunctionImportMapping FunctionImportName="sp_DeleteCoy" FunctionName="LGNewReportingSystemEntities.Store.sp_DeleteCoy" />
+    <FunctionImportMapping FunctionImportName="sp_DeleteEntryName" FunctionName="LGNewReportingSystemEntities.Store.sp_DeleteEntryName" />
+    <FunctionImportMapping FunctionImportName="sp_DeleteOrderType" FunctionName="LGNewReportingSystemEntities.Store.sp_DeleteOrderType" />
+    <FunctionImportMapping FunctionImportName="sp_DeletePt2Orders" FunctionName="LGNewReportingSystemEntities.Store.sp_DeletePt2Orders" />
+    <FunctionImportMapping FunctionImportName="sp_DeleteRank" FunctionName="LGNewReportingSystemEntities.Store.sp_DeleteRank" />
+    <FunctionImportMapping FunctionImportName="sp_DeleteUnit" FunctionName="LGNewReportingSystemEntities.Store.sp_DeleteUnit" />
+    <FunctionImportMapping FunctionImportName="sp_DeleteUser" FunctionName="LGNewReportingSystemEntities.Store.sp_DeleteUser" />
+    <FunctionImportMapping FunctionImportName="sp_EditCoy" FunctionName="LGNewReportingSystemEntities.Store.sp_EditCoy" />
+    <FunctionImportMapping FunctionImportName="sp_EditPt2Orders" FunctionName="LGNewReportingSystemEntities.Store.sp_EditPt2Orders" />
+    <FunctionImportMapping FunctionImportName="sp_EditPt2OrdersLatest" FunctionName="LGNewReportingSystemEntities.Store.sp_EditPt2OrdersLatest" />
+    <FunctionImportMapping FunctionImportName="sp_EditPt2OrdersType" FunctionName="LGNewReportingSystemEntities.Store.sp_EditPt2OrdersType" />
+    <FunctionImportMapping FunctionImportName="sp_EditUser" FunctionName="LGNewReportingSystemEntities.Store.sp_EditUser" />
+    <FunctionImportMapping FunctionImportName="sp_getCoyName" FunctionName="LGNewReportingSystemEntities.Store.sp_getCoyName" />
+    <FunctionImportMapping FunctionImportName="sp_getEntyID" FunctionName="LGNewReportingSystemEntities.Store.sp_getEntyID" />
+    <FunctionImportMapping FunctionImportName="sp_getorderID" FunctionName="LGNewReportingSystemEntities.Store.sp_getorderID" />
+    <FunctionImportMapping FunctionImportName="sp_getRankName" FunctionName="LGNewReportingSystemEntities.Store.sp_getRankName" />
+    <FunctionImportMapping FunctionImportName="sp_getUnitName" FunctionName="LGNewReportingSystemEntities.Store.sp_getUnitName" />
+    <FunctionImportMapping FunctionImportName="sp_InsertBrigade" FunctionName="LGNewReportingSystemEntities.Store.sp_InsertBrigade" />
+    <FunctionImportMapping FunctionImportName="sp_InsertCoy" FunctionName="LGNewReportingSystemEntities.Store.sp_InsertCoy" />
+    <FunctionImportMapping FunctionImportName="sp_InsertEntryName" FunctionName="LGNewReportingSystemEntities.Store.sp_InsertEntryName" />
+    <FunctionImportMapping FunctionImportName="sp_InsertOrderType" FunctionName="LGNewReportingSystemEntities.Store.sp_InsertOrderType" />
+    <FunctionImportMapping FunctionImportName="sp_InsertPt2Orders" FunctionName="LGNewReportingSystemEntities.Store.sp_InsertPt2Orders" />
+    <FunctionImportMapping FunctionImportName="sp_InsertRank" FunctionName="LGNewReportingSystemEntities.Store.sp_InsertRank" />
+    <FunctionImportMapping FunctionImportName="sp_InsertSecurityDetail" FunctionName="LGNewReportingSystemEntities.Store.sp_InsertSecurityDetail" />
+    <FunctionImportMapping FunctionImportName="sp_InsertUnit" FunctionName="LGNewReportingSystemEntities.Store.sp_InsertUnit" />
+    <FunctionImportMapping FunctionImportName="sp_InsertUser" FunctionName="LGNewReportingSystemEntities.Store.sp_InsertUser" />
+    <FunctionImportMapping FunctionImportName="sp_SearchEmployeeInfoID" FunctionName="LGNewReportingSystemEntities.Store.sp_SearchEmployeeInfoID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LGNewReportingSystemEntities.sp_SearchEmployeeInfoID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="First_Name" ColumnName="First Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+          <ScalarProperty Name="Marital_Staus" ColumnName="Marital Staus" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Date_of_Birth" ColumnName="Date of Birth" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_SearchSecurityDetail" FunctionName="LGNewReportingSystemEntities.Store.sp_SearchSecurityDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LGNewReportingSystemEntities.sp_SearchSecurityDetail_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="First_Name" ColumnName="First Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+          <ScalarProperty Name="Marital_Staus" ColumnName="Marital Staus" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Date_of_Birth" ColumnName="Date of Birth" />
+          <ScalarProperty Name="Date_of_Enlistment" ColumnName="Date of Enlistment" />
+          <ScalarProperty Name="Run_Out_Date" ColumnName="Run Out Date" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Parish" ColumnName="Parish" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_selectBrigade" FunctionName="LGNewReportingSystemEntities.Store.sp_selectBrigade">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LGNewReportingSystemEntities.sp_selectBrigade_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Brigade" ColumnName="Brigade" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_selectBrigadebyBde" FunctionName="LGNewReportingSystemEntities.Store.sp_selectBrigadebyBde">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LGNewReportingSystemEntities.sp_selectBrigadebyBde_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Brigade" ColumnName="Brigade" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_selectbrigadeID" FunctionName="LGNewReportingSystemEntities.Store.sp_selectbrigadeID" />
+    <FunctionImportMapping FunctionImportName="sp_selectCoy" FunctionName="LGNewReportingSystemEntities.Store.sp_selectCoy">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LGNewReportingSystemEntities.sp_selectCoy_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CoyName" ColumnName="CoyName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_selectCoybyID" FunctionName="LGNewReportingSystemEntities.Store.sp_selectCoybyID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LGNewReportingSystemEntities.sp_selectCoybyID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_selectEntryName" FunctionName="LGNewReportingSystemEntities.Store.sp_selectEntryName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LGNewReportingSystemEntities.sp_selectEntryName_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Entry" ColumnName="Entry" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_selectOrdersType" FunctionName="LGNewReportingSystemEntities.Store.sp_selectOrdersType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LGNewReportingSystemEntities.sp_selectOrdersType_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ordersName" ColumnName="ordersName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_selectP20EntrybyID" FunctionName="LGNewReportingSystemEntities.Store.sp_selectP20EntrybyID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LGNewReportingSystemEntities.sp_selectP20EntrybyID_Result">
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="First_Name" ColumnName="First Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Entry" ColumnName="Entry" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Occurrence" ColumnName="Occurrence" />
+          <ScalarProperty Name="DateofOrder" ColumnName="DateofOrder" />
+          <ScalarProperty Name="wefDate" ColumnName="wefDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="EnteredBy" ColumnName="EnteredBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_selectRank" FunctionName="LGNewReportingSystemEntities.Store.sp_selectRank">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LGNewReportingSystemEntities.sp_selectRank_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RankName" ColumnName="RankName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_selectUnit" FunctionName="LGNewReportingSystemEntities.Store.sp_selectUnit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LGNewReportingSystemEntities.sp_selectUnit_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_selectUnitbyID" FunctionName="LGNewReportingSystemEntities.Store.sp_selectUnitbyID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LGNewReportingSystemEntities.sp_selectUnitbyID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_SelectUser" FunctionName="LGNewReportingSystemEntities.Store.sp_SelectUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LGNewReportingSystemEntities.sp_SelectUser_Result">
+          <ScalarProperty Name="Users" ColumnName="Users" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="Rights" ColumnName="Rights" />
+          <ScalarProperty Name="BrigadeLevel" ColumnName="BrigadeLevel" />
+          <ScalarProperty Name="UntLevel" ColumnName="UntLevel" />
+          <ScalarProperty Name="CoyLevel" ColumnName="CoyLevel" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_selectUserLogin" FunctionName="LGNewReportingSystemEntities.Store.sp_selectUserLogin" />
+    <FunctionImportMapping FunctionImportName="sp_selectUserLoginDetail" FunctionName="LGNewReportingSystemEntities.Store.sp_selectUserLoginDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LGNewReportingSystemEntities.sp_selectUserLoginDetail_Result">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Rights" ColumnName="Rights" />
+          <ScalarProperty Name="BrigadeLevel" ColumnName="BrigadeLevel" />
+          <ScalarProperty Name="UntLevel" ColumnName="UntLevel" />
+          <ScalarProperty Name="CoyLevel" ColumnName="CoyLevel" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_UpdateBrigade" FunctionName="LGNewReportingSystemEntities.Store.sp_UpdateBrigade" />
+    <FunctionImportMapping FunctionImportName="sp_UpdateCoy" FunctionName="LGNewReportingSystemEntities.Store.sp_UpdateCoy" />
+    <FunctionImportMapping FunctionImportName="sp_UpdateEntryName" FunctionName="LGNewReportingSystemEntities.Store.sp_UpdateEntryName" />
+    <FunctionImportMapping FunctionImportName="sp_UpdateOrderType" FunctionName="LGNewReportingSystemEntities.Store.sp_UpdateOrderType" />
+    <FunctionImportMapping FunctionImportName="sp_UpdateRank" FunctionName="LGNewReportingSystemEntities.Store.sp_UpdateRank" />
+    <FunctionImportMapping FunctionImportName="sp_UpdateSecurityDetail" FunctionName="LGNewReportingSystemEntities.Store.sp_UpdateSecurityDetail" />
+    <FunctionImportMapping FunctionImportName="sp_UpdateUnit" FunctionName="LGNewReportingSystemEntities.Store.sp_UpdateUnit" />
+  </EntityContainerMapping>
+</Mapping>

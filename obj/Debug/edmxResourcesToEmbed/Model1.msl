@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Lg3ReportingSystemModelStoreContainer" CdmEntityContainer="Lg3ReportingSystemEntities">
+    <EntitySetMapping Name="Brigades">
+      <EntityTypeMapping TypeName="Lg3ReportingSystemModel.Brigade">
+        <MappingFragment StoreEntitySet="Brigade">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BrigadeName" ColumnName="BrigadeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Coys">
+      <EntityTypeMapping TypeName="Lg3ReportingSystemModel.Coy">
+        <MappingFragment StoreEntitySet="Coy">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CoyName" ColumnName="CoyName" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EntryTypes">
+      <EntityTypeMapping TypeName="Lg3ReportingSystemModel.EntryType">
+        <MappingFragment StoreEntitySet="EntryType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EntryName" ColumnName="EntryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdersTypes">
+      <EntityTypeMapping TypeName="Lg3ReportingSystemModel.OrdersType">
+        <MappingFragment StoreEntitySet="OrdersType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrdersName" ColumnName="OrdersName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passwords">
+      <EntityTypeMapping TypeName="Lg3ReportingSystemModel.Password">
+        <MappingFragment StoreEntitySet="Password">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="Rights" ColumnName="Rights" />
+          <ScalarProperty Name="BrigadeLevel" ColumnName="BrigadeLevel" />
+          <ScalarProperty Name="UntLevel" ColumnName="UntLevel" />
+          <ScalarProperty Name="CoyLevel" ColumnName="CoyLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ranks">
+      <EntityTypeMapping TypeName="Lg3ReportingSystemModel.Rank">
+        <MappingFragment StoreEntitySet="Rank">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RankName" ColumnName="RankName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SoldierInfoes">
+      <EntityTypeMapping TypeName="Lg3ReportingSystemModel.SoldierInfo">
+        <MappingFragment StoreEntitySet="SoldierInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="DOE" ColumnName="DOE" />
+          <ScalarProperty Name="ROD" ColumnName="ROD" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Parish" ColumnName="Parish" />
+          <ScalarProperty Name="TerminationDate" ColumnName="TerminationDate" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Units">
+      <EntityTypeMapping TypeName="Lg3ReportingSystemModel.Unit">
+        <MappingFragment StoreEntitySet="Unit">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+          <ScalarProperty Name="BdeID" ColumnName="BdeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="P2OEntry">
+      <EntityTypeMapping TypeName="Lg3ReportingSystemModel.P2OEntry">
+        <MappingFragment StoreEntitySet="P2OEntry">
+          <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+          <ScalarProperty Name="RankId" ColumnName="RankId" />
+          <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+          <ScalarProperty Name="CoyID" ColumnName="CoyID" />
+          <ScalarProperty Name="EntryID" ColumnName="EntryID" />
+          <ScalarProperty Name="OrdersID" ColumnName="OrdersID" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="DateofOrder" ColumnName="DateofOrder" />
+          <ScalarProperty Name="Occurrence" ColumnName="Occurrence" />
+          <ScalarProperty Name="wefDate" ColumnName="wefDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="EnteredBy" ColumnName="EnteredBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
